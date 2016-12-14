@@ -1,0 +1,23 @@
+{
+  "name": "mlop-poi-query",
+  "version": "1.0.0",
+  "description": "A small utility to compile selection rules to mongo query.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cloudnapps/mlop-poi-query.git"
+  },
+  "keywords": [
+    "mongo",
+    "query"
+  ],
+  "author": "Min Lin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cloudnapps/mlop-poi-query/issues"
+  },
+  "homepage": "https://github.com/cloudnapps/mlop-poi-query#readme"
+}
