@@ -16,7 +16,9 @@ function explainSelectionTreeNodesAsIfStatments(treeNodes) {
 
 function extend(obj1, obj2) {
   for (var key in obj2) {
-    obj1.push({ key: obj2[key] });
+    var temp = {};
+    temp[key] = obj2[key];
+    obj1.push(temp);
   }
   return obj1;
 }
