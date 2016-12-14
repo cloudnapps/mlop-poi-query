@@ -16,7 +16,7 @@ function explainSelectionTreeNodesAsIfStatments(treeNodes) {
 
 function extend(obj1, obj2) {
   for (var key in obj2) {
-    obj1[key] = obj2[key];
+    obj1.push({ key: obj2[key] });
   }
   return obj1;
 }
@@ -24,14 +24,12 @@ function extend(obj1, obj2) {
 function compileSelectionTreeToQuery(node) {
   var query = {};
 
-  var nodeQueryExp = extend({}, node.rule.criteria);
+  var nodeQueryExp = extend([], node.rule.criteria);
 
   if (node.rule.action === 'exclude') {
-    query.$nor = [];
-    query.$nor.push(nodeQueryExp);
+    query.$nor = nodeQueryExp;
   } else {
-    query.$and = [];
-    query.$and.push(nodeQueryExp);
+    query.$and = nodeQueryExp;
   }
   return query;
 }
@@ -44,7 +42,7 @@ function compileSelectionTreeNodesToQuery(treeNodes) {
   });
   if (query.$or.length === 0) {
     // negate the query
-    query = {};
+    query = { _id: null };
   }
   return query;
 }
